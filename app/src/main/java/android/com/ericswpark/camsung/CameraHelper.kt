@@ -8,8 +8,12 @@ class CameraHelper {
         val propString = "csc_pref_camera_forced_shuttersound_key"
 
         fun isCameraMuted(contentResolver: ContentResolver): Boolean {
-            val propValue = Settings.System.getInt(contentResolver, propString)
-            return propValue == 0
+            return try {
+                val propValue = Settings.System.getInt(contentResolver, propString)
+                propValue == 0
+            } catch (e: Settings.SettingNotFoundException) {
+                false
+            }
         }
 
         fun setCameraMute(contentResolver: ContentResolver) {
