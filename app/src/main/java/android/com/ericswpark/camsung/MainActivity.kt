@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val switch = findViewById<SwitchMaterial>(R.id.main_activity_switch)
-        switch.isChecked = CameraSettings.isCameraMuted(contentResolver)
+        switch.isChecked = CameraHelper.isCameraMuted(contentResolver)
 
         val bootLockButton = findViewById<ImageView>(R.id.main_activity_boot_lock)
         if (isBootEnabled()) {
@@ -69,15 +69,15 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        if (CameraSettings.isCameraMuted(contentResolver)) {
-            CameraSettings.setCameraUnmute(contentResolver)
+        if (CameraHelper.isCameraMuted(contentResolver)) {
+            CameraHelper.setCameraUnmute(contentResolver)
             Toast.makeText(this, R.string.main_activity_mute_disabled, Toast.LENGTH_SHORT).show()
         } else {
-            CameraSettings.setCameraMute(contentResolver)
+            CameraHelper.setCameraMute(contentResolver)
             Toast.makeText(this, R.string.main_activity_mute_enabled, Toast.LENGTH_SHORT).show()
         }
 
-        switch.isChecked = CameraSettings.isCameraMuted(contentResolver)
+        switch.isChecked = CameraHelper.isCameraMuted(contentResolver)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)

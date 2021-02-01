@@ -3,7 +3,7 @@ package android.com.ericswpark.camsung
 import android.content.ContentResolver
 import android.provider.Settings
 
-class CameraSettings {
+class CameraHelper {
     companion object {
         val propString = "csc_pref_camera_forced_shuttersound_key"
 
