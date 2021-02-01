@@ -1,24 +1,19 @@
-# awipe
+# camsung/캠성
 
-Android wiping app to help you wipe free space on your device
+Silence camera on Samsung phones
 
-Useful for old Android devices that do not have proper encryption or wiping mechanisms
+삼성 폰에서 카메라 무음 설정
 
-[Download latest APK](https://github.com/ericswpark/awipe/releases/latest/download/app-release.apk)
+[Download latest APK / 최신 빌드 다운로드](https://github.com/ericswpark/camsung/releases/latest/download/app-release.apk)
 
-## Screenshots
+## Screenshots/스샷
 
 ![main_window](img/main_window.png?raw=true) ![wipe_process](img/wipe_process.png?raw=true)
 
-## Warning
+## Warning/경고
 
-awipe is still in beta. It may not securely write over every single byte on your device. I am not responsible for any sensitive data leaking as a result of using this tool.
+Please do not use this app for malicious purposes. It's only made for situations where you don't want to disturb
+other people (such as in restaurants or in a library).
 
-## Usage
-
-1. Wipe your device
-2. Encrypt your device (if it isn't already encrypted)
-3. Install awipe
-4. Run awipe
-5. Factory reset from the Settings app, or if the Settings app force-closes due to low available storage space, then reboot to recovery and format the data partition.
-6. Give your device away or sell it
+악의적인 용도로의 사용을 자제해주세요. 이 어플은 조용히 해야 하는 상황(예를 들어 음식점이나 도서관)에서
+남을 방해하지 않고 카메라를 사용할 수 있도록 제작되었습니다.
