@@ -3,33 +3,41 @@ package android.com.ericswpark.camsung
 import android.com.ericswpark.camsung.FAQActivity.FAQActivity
 import android.content.Context
 import android.content.Intent
-import android.os.*
-import android.os.storage.StorageManager
-import android.util.Log
+import android.net.Uri
+import android.os.Build
+import android.os.Bundle
+import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.view.WindowManager
-import android.widget.*
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.snackbar.Snackbar
-import java.io.File
-import java.io.FileOutputStream
-import java.util.*
-import kotlin.concurrent.thread
-import kotlin.random.Random
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 
 class MainActivity : AppCompatActivity() {
+    val sharedPrefKey = "android.com.ericswpark.camsung.PREFERENCES"
+
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val keepWipeFileCheckBox = findViewById<CheckBox>(R.id.main_activity_do_not_delete_wipe_file_checkbox)
-        keepWipeFileCheckBox.setOnLongClickListener {
-            explainKeepWipeFile()
-            true
+        val switch = findViewById<SwitchMaterial>(R.id.main_activity_switch)
+        switch.isChecked = CameraSettings.isCameraMuted(contentResolver)
+
+        val bootLockButton = findViewById<ImageView>(R.id.main_activity_boot_lock)
+        if (isBootEnabled()) {
+            bootLockButton.setImageResource(R.drawable.ic_baseline_lock_24)
+        } else {
+            bootLockButton.setImageResource(R.drawable.ic_baseline_lock_open_24)
+        }
+
+        if (!isPermissionGranted()) {
+            showPermissionDialog()
         }
     }
 
@@ -39,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.action_faq -> launchFAQ()
         }
         return super.onOptionsItemSelected(item)
@@ -50,149 +58,81 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun keepScreenOnSwitchClicked(v: View) {
-        val switch = findViewById<Switch>(R.id.main_activity_keep_screen_on_switch)
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun toggleMuteClicked(v: View) {
+        val switch = findViewById<SwitchMaterial>(R.id.main_activity_switch)
 
-        if (switch.isChecked)
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        else
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        if (!isPermissionGranted()) {
+            showPermissionDialog()
+            switch.isChecked = !switch.isChecked
+            return
+        }
+
+        if (CameraSettings.isCameraMuted(contentResolver)) {
+            CameraSettings.setCameraUnmute(contentResolver)
+            Toast.makeText(this, R.string.main_activity_mute_disabled, Toast.LENGTH_SHORT).show()
+        } else {
+            CameraSettings.setCameraMute(contentResolver)
+            Toast.makeText(this, R.string.main_activity_mute_enabled, Toast.LENGTH_SHORT).show()
+        }
+
+        switch.isChecked = CameraSettings.isCameraMuted(contentResolver)
     }
 
-    fun startWipeClicked(v: View) {
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun bootLockClicked(v: View) {
+        if (!isPermissionGranted()) {
+            showPermissionDialog()
+            return
+        }
+
+        val bootLockButton = findViewById<ImageView>(R.id.main_activity_boot_lock)
+        val sharedPref = getSharedPreferences(sharedPrefKey, Context.MODE_PRIVATE)
+
+        if (!isBootEnabled())  {
+            bootLockButton.setImageResource(R.drawable.ic_baseline_lock_24)
+
+            with(sharedPref.edit()) {
+                putInt("start_at_boot", 1)
+                apply()
+            }
+            Toast.makeText(this, R.string.main_activity_boot_enabled, Toast.LENGTH_SHORT).show()
+        } else {
+            bootLockButton.setImageResource(R.drawable.ic_baseline_lock_open_24)
+
+            with(sharedPref.edit()) {
+                putInt("start_at_boot", 0)
+                apply()
+            }
+            Toast.makeText(this, R.string.main_activity_boot_disabled, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun isBootEnabled(): Boolean {
+        val sharedPref = getSharedPreferences(sharedPrefKey, Context.MODE_PRIVATE)
+        return sharedPref.getInt("start_at_boot", 0) == 1
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun isPermissionGranted(): Boolean {
+        return Settings.System.canWrite(applicationContext)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun showPermissionDialog() {
         val dialogBuilder = AlertDialog.Builder(this)
         dialogBuilder
-            .setTitle(R.string.main_activity_start_confirm_title)
-            .setMessage(R.string.main_activity_start_confirm_message)
-            .setPositiveButton(android.R.string.ok) { _, _ -> wipeRoutine(v) }
+            .setTitle(R.string.main_activity_write_settings_permission_title)
+            .setMessage(R.string.main_activity_write_settings_permission_message)
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:$packageName"))
+                startActivity(intent)
+            }
             .setNegativeButton(android.R.string.cancel) { dialog, _ -> dialog.cancel() }
 
         val dialog = dialogBuilder.create()
         dialog.show()
     }
 
-    fun explainKeepWipeFile() {
-        val dialogBuilder = AlertDialog.Builder(this)
-        dialogBuilder
-            .setTitle(R.string.main_activity_keep_wipe_file_explanation_title)
-            .setMessage(R.string.main_activity_keep_wipe_file_explanation_message)
-            .setPositiveButton(android.R.string.ok) { dialog, _ -> dialog.cancel() }
-
-        val dialog = dialogBuilder.create()
-        dialog.show()
-    }
-
-    private fun wipeRoutine(v: View) {
-        // On start, disable button
-        val startButton = findViewById<Button>(R.id.main_activity_start_button)
-        startButton.isEnabled = false
-
-        // Enable progress bars
-        val wipeProgressBar = findViewById<ProgressBar>(R.id.main_activity_wipe_progress_bar)
-        val wipeProgressText = findViewById<TextView>(R.id.main_activity_wipe_progress_text)
-        wipeProgressBar.visibility = View.VISIBLE
-        wipeProgressText.visibility = View.VISIBLE
-
-        Snackbar.make(v, R.string.main_activity_wipe_started, Snackbar.LENGTH_SHORT).show()
-        vibratePhone(v.context)
-
-        val doNotDeleteFileCheckBox = findViewById<CheckBox>(R.id.main_activity_do_not_delete_wipe_file_checkbox)
-        thread {
-            wipe(!doNotDeleteFileCheckBox.isChecked)
-
-            Snackbar.make(v, R.string.main_activity_wipe_finished, Snackbar.LENGTH_SHORT).show()
-            vibratePhone(v.context)
-
-            // On end, enable button
-            runOnUiThread {
-                startButton.isEnabled = true
-            }
-        }
-    }
-
-    private fun wipe(deleteFile: Boolean) {
-        // Query free space
-        val availableBytes = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val storageManager = applicationContext.getSystemService(
-                StorageManager::class.java
-            )
-            val appSpecificInternalDirUuid: UUID = storageManager.getUuidForPath(filesDir)
-            storageManager.getAllocatableBytes(appSpecificInternalDirUuid)
-        } else {
-            val stat = StatFs(Environment.getExternalStorageDirectory().getPath())
-            stat.blockSize.toLong() * stat.blockCount.toLong()
-        }
-
-        Log.d("MainActivity", "Available bytes: $availableBytes")
-        Log.d("MainActivity", "Available MB: " + availableBytes / 1024 / 1024)
-
-        val file = File(applicationContext.filesDir, "wipeFile")
-        file.createNewFile()
-
-        if (file.exists()) {
-            val fo = FileOutputStream(file, true)
-
-            var byteCount: Long = 0
-
-            while (true) {
-                try {
-                    val randomBytes = Random.nextBytes(1024 * 1024)
-                    fo.write(randomBytes)
-                    fo.flush()
-                    byteCount += 1024 * 1024
-                    runOnUiThread {
-                        updateWipeProgress(byteCount, availableBytes)
-                    }
-                } catch (e: Exception) {
-                    // We ran out of space!
-                    break
-                }
-            }
-
-            fo.close()
-        }
-
-        if (deleteFile) {
-            file.delete()
-        }
-    }
-
-    private fun updateWipeProgress(currentBytes: Long, totalBytes: Long) {
-        val progressBar = findViewById<ProgressBar>(R.id.main_activity_wipe_progress_bar)
-        val progressText = findViewById<TextView>(R.id.main_activity_wipe_progress_text)
-
-        val percentage: Double = currentBytes.toDouble() / totalBytes * 100
-
-        if (percentage.toInt() <= 100) {
-            progressBar.progress = percentage.toInt()
-            progressText.text = String.format(
-                    "%d/%d, %.2f%%",
-                    currentBytes,
-                    totalBytes,
-                    currentBytes.toDouble() / totalBytes * 100
-            )
-        } else {
-            // Overshoot warning
-            progressBar.progress = 100
-            progressText.text = String.format(
-                    "%d/%d, 100%%%n%s",
-                    currentBytes,
-                    totalBytes,
-                    getString(R.string.main_activity_overshoot_warning)
-            )
-        }
-    }
-
-    // From https://stackoverflow.com/a/45605249
-    private fun vibratePhone(context: Context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            (context.getSystemService(VIBRATOR_SERVICE) as Vibrator)
-                .vibrate(
-                    VibrationEffect
-                        .createOneShot(150, VibrationEffect.DEFAULT_AMPLITUDE)
-                )
-        } else {
-            (context.getSystemService(VIBRATOR_SERVICE) as Vibrator).vibrate(150)
-        }
-    }
 }

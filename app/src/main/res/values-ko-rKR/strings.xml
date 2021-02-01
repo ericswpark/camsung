@@ -1,101 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">awipe</string>
+    <string name="app_name">캠성</string>
 
-    <string name="main_activity_explanation">
-        awipe는 기기의 내부 저장소에 무작위로 데이터를 저장해 기기 속 정보를 지웁니다. 최상의 결과를 얻기
-        위해서는 실행 전 기기가 암호화되어 있는지 확인해주세요.\n\n실행이 완료되면, 기기를 다시 시작한 다음
-        리커버리 모드에서 데이터 파티션을 포맷하면 됩니다.
+    <string name="main_activity_mute_enabled">카메라 무음 활성화됨.</string>
+    <string name="main_activity_mute_disabled">카메라 무음 비활성화됨.</string>
+    <string name="main_activity_boot_enabled">재부팅 시, 카메라 무음이 지속됩니다.</string>
+    <string name="main_activity_boot_disabled">재부팅 시, 카메라 무음이 지속되지 않습니다.</string>
+
+    <string name="boot_error_no_permissions">권한 오류 - 카메라 무음 활성화에 실패했습니다.</string>
+
+    <string name="main_activity_write_settings_permission_title">권한 없음</string>
+    <string name="main_activity_write_settings_permission_message">
+        이 어플이 정상적으로 작동하기 위해선 시스템 설정 변경 권한이 부여되어야 합니다. 설정으로
+        이동하시겠습니까?
     </string>
 
-    <string name="main_activity_warning">
-        경고: awipe는 기기의 사용 가능 공간만 지웁니다! awipe를 실행하기 전, 기기를 먼저 초기화한 다음,
-        (만약 기기가 이미 암호화가 되어있지 않다면) 기기를 암호화한 후, awipe를 실행해 모든 정보를 지우는
-        것을 권장합니다.
+    <string name="main_activity_action_faq">FAQ</string>
+
+    <string name="faq_activity_phone_mute_title">
+        Q: 스위치가 켜져 있는데 왜 아직도 카메라 셔터음이 발생하나요?
+    </string>
+    <string name="faq_activity_phone_mute_description">
+        휴대폰의 밸소리 볼륨이 켜져 있어서 그렇습니다. 진동이나 무음으로 변경하세요.
     </string>
 
-    <string name="main_activity_do_not_delete_wipe_file_checkbox">임시 파일 지우지 않기</string>
-
-    <string name="main_activity_keep_wipe_file_explanation_title">이게 뭔가요?</string>
-    <string name="main_activity_keep_wipe_file_explanation_message">
-        내부 저장소에 정상적으로 파일을 저장했는지 확인하기 위해서, 저장 중 임시 파일의 삭제를 막습니다.
-        리커버리 모드에서 바로 포맷을 하실 때 쓰시면 유용합니다.
+    <string name="faq_activity_samsung_update_title">
+        Q: 휴대폰을 업데이트했는데 캠성이 작동하질 않습니다.
+    </string>
+    <string name="faq_activity_samsung_update_description">
+        삼성이 아마도 캠성이 사용하는 방법을 패치한 것 같습니다. 아쉽지만, 카메라를 몰래 사용하여 발생하는
+        범죄 때문에 그렇습니다. 제발 합법적인 용도로만 캠성을 사용해주세요.
     </string>
 
-    <string name="main_activity_keep_screen_on_switch">화면 켜 두기</string>
+    <string name="faq_activity_legitimate_uses_title">
+        Q: 캠성 사용 목적이 무엇입니까?
+    </string>
+    <string name="faq_activity_legitimate_uses_description">
+         - 조용한 음식점에서 음식 사진을 찍을 때 \n
+        - 도서관에서 노트 필기 사진을 찍을 때 \n
+        - 미팅/교실에서 보드 사진을 찍을 때 \n\n
 
-    <string name="main_activity_start_button">시작</string>
-
-    <string name="main_activity_start_confirm_title">진행할까요?</string>
-    <string name="main_activity_start_confirm_message">
-        무작위 데이터 저장을 시작할까요? 지워진 데이터는 복구가 불가능합니다!
+        위에 적혀있듯이, 제발 캠성을 합법적인 용도로만 사용해주세요. 저는 이 어플을 사용하여 발생한 문제에 대해
+        책임을 지지 않습니다.
     </string>
 
-    <string name="main_activity_wipe_started">지우기 시작했습니다…</string>
-    <string name="main_activity_wipe_finished">성공적으로 지웠습니다!</string>
-
-    <string name="main_activity_overshoot_warning">마지막 몇 바이트에 저장 마무리 중…</string>
-
-    <string name="main_activity_action_faq">자주 묻는 질문</string>
-
-    <string name="faq_activity_overshoot_title">Q: 왜 awipe가 100%보다 높게 가죠?</string>
-    <string name="faq_activity_overshoot_description">
-        awipe는 바로바로 무작위 데이터를 저장소에 저장하지 않습니다. 모든 어플은 버퍼가 있으며, 이 버퍼 속의
-        데이터는 주기적으로 저장소로 작성됩니다. 따라서, awipe는 100% 목표보다 높게 갈 수 있고, 기기 속
-        저장소가 다 찼음에도 불구하고 계속 무작위 데이터를 생성할 수 있습니다. awipe가 기기 저장소가
-        찼음을 감지할 경우, 작동을 멈추고 사용자에게 완료 상태를 알려드립니다.
+    <string name="faq_activity_android_warning_title">
+        Q: 안드로이드 시스템에서 어플이 정상적으로 동작하지 않을 수 있다고 경고합니다. 왜죠?
+    </string>
+    <string name="faq_activity_android_warning_description">
+        안드로이드는 보호된 시스템 설정의 변경을 SDK 22 이하를 타겟하는 어플에게만 허용합니다. 하지만, SDK
+        버전을 22로 설정하게 된다면 안드로이드는 사용자에게 어플에 호환성 문제가 있을 수 있음을 경고합니다.
+        이것은 원래 정상적인 작동으로, 경고를 무시하셔도 됩니다.
     </string>
 
-    <string name="faq_activity_undershoot_title">Q: 왜 awipe가 100%보다 낮게 가죠?</string>
-    <string name="faq_activity_undershoot_description">
-        어쩔땐 시스템이 현재 사용 가능한 용량보다 더 많이 용량을 보고하는 경우가 있습니다. 이런 경우,
-        awipe는 정확하게 진행 상황을 표시할 수 없습니다. 하지만, awipe는 그래도 모든 바이트에 무작위
-        데이터를 저장하려 노력하니, 시스템이 부정확한 사용 가능 용량을 보고하는 것에 대해선 걱정하지
-        않으셔도 됩니다.
-    </string>
-
-    <string name="faq_activity_leftover_space_title">
-        Q: awipe를 실행 후 사용 가능 용량이 0 바이트가 아닙니다. 왜죠?
-    </string>
-    <string name="faq_activity_leftover_space_description">
-        안드로이드의 시스템은 어플들이 저장소를 완전히 사용하는 것을 막고, 몇 킬로바이트는 남겨두어
-        중요한 시스템 프로세스들이 계속 작동할 수 있게 해 줍니다. awipe는 시스템이 I/O 문제 (즉, 기기의
-        저장소가 다 찼다는 뜻)를 보고하기 전까지는 계속 저장소로 무작위 데이터를 저장합니다. 이때,
-        안드로이드 시스템은 몇 킬로바이트를 남겨두기 위해 저장소가 완전히 차지 않음에도 불구하고 I/O
-        문제를 보고합니다. awipe 또는 다른 안드로이드 어플들은 안드로이드 시스템의 중요 프로세스 보호 기능
-        때문에 이 마지막 바이트들에 데이터를 저장할 수가 없습니다.
-    </string>
-
-    <string name="faq_activity_force_close_title">
-        Q: awipe를 실행 후 어플들이 강제로 종료됩니다. 왜죠?
-    </string>
-    <string name="faq_activity_force_close_description">
-        어플들이 임시 파일을 작성하기 위한 공간이 부족해서 발생하는 일입니다. 최근 안드로이드 버전들은
-        이 상황을 방지하려 노력하지만, 아직도 일어나는 경우가 종종 있습니다. 이 때문에 awipe를 평소에
-        사용하는 기기에 실행하시면 안 됩니다. 이 상황이 일어날 경우, 심하면 공장 초기화를 해야 되는 경우도
-        있기 때문입니다. 공장 초기화를 진행하고 싶지 않으신 경우, 어플의 데이터를 삭제하거나 어플을 완전히
-        삭제해 주세요 (안드로이드 시스템은 어플 데이터를 어플이 삭제될 때 같이 지웁니다).
-    </string>
-
-    <string name="faq_activity_wipe_security_title">
-        Q: awipe는 보안이 얼마나 강력하나요? 혹시 awipe로 삭제된 데이터는 복구가 가능하나요?
-    </string>
-    <string name="faq_activity_wipe_security_description">
-        이론적으로, awipe는 기기 상 모든 데이터를 복구 불가능 상태로 만들어버립니다. 하지만, 알아두어야
-        할 중요한 사항들이 몇 가지 있습니다.
-        \n\n일단, awipe는 한 번만 동작하도록 설계되었습니다. 한 번만 돌려도 충분하겠지만, 거의 대부분에
-        기기에 들어가는 플래시 칩들은 여유분 블록을 남겨둡니다. 이 여유 블록은 플래시 칩의 수명을 연장시켜
-        줍니다. awipe는 이런 여유분 블록을 직접 지울 순 없고, 플래시 컨트롤러가 운으로 이 여유 블록에
-        데이터를 작성하길 바래야 합니다.
-        \n\n좋은 소식은 사용자의 데이터가 이러한 여유분 블록에 남아있을 확률은 매우 적습니다. 여유분
-        블록은 전체 플래시 크기의 대략 5-20% 공간만 남겨두기 때문입니다. 거기에다가 더더욱 좋은 소식은
-        이런 여유 블록을 덮어씌우는 확률을 높이는 방법이 있는데, 바로 awipe를 여러 번 돌리면 됩니다.
-        만약 여러 번 돌리실 예정이라면 임시 파일을 삭제하지 않는 체크박스가 해제되어 있는지 꼭 확인하세요.
-        \n\nawipe는 베타 소프트웨어입니다. 아직 추가적인 실험이나 검증을 하지 않은 어플입니다.
-        저는 이 어플의 사용으로 발생하는 모든 데이터 손실이나 유출에 책임이 없음을 알려드립니다.
-        \n\n끝으로, 진짜 작정하고 수사하는 정부 기관 (NSA 등)에서 사용자의 기기를 검사하지 않는 이상,
-        awipe는 대부분의 사용자분들께 적합한 어플입니다. 낡은 구형 Android 기기를 팔기 전 데이터를
-        삭제하는 데 초점이 맞추어져 있고, 최신 Android 기기는 더 향상된 보안 기능과 초기화 기능이 있기에
-        awipe 사용시 참고만 해 주시기 바랍니다.
-    </string>
 </resources>

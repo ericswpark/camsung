@@ -1,106 +1,58 @@
 <resources>
-    <string name="app_name">awipe</string>
+    <string name="app_name">camsung</string>
 
-    <string name="main_activity_explanation">
-        awipe will help you wipe a device by writing random data to a file in the internal storage,
-        overwriting free space on the device. For best results, ensure that your phone is encrypted
-        before starting the wipe.\n\nOnce the operation is complete, restart the phone and wipe it
-        clean from recovery.
+    <string name="main_activity_mute_enabled">Camera mute enabled.</string>
+    <string name="main_activity_mute_disabled">Camera mute disabled.</string>
+    <string name="main_activity_boot_enabled">Camera will be muted across reboots.</string>
+    <string name="main_activity_boot_disabled">Camera will not be muted across reboots.</string>
+
+    <string name="boot_error_no_permissions">Permissions error - unable to mute camera.</string>
+
+    <string name="main_activity_write_settings_permission_title">Permission not granted</string>
+    <string name="main_activity_write_settings_permission_message">
+        In order for this app to work you must grant the write settings permission. Do you want to
+        go to the settings page now?
     </string>
 
-    <string name="main_activity_warning">
-        Warning: awipe will ONLY wipe the free space on the device. Before running awipe, it is
-        strongly recommended to perform a factory reset first, then encrypt the device (if the
-        device isn\'t already encrypted), then run awipe to ensure that everything will be
-        overwritten!
-    </string>
-
-    <string name="main_activity_do_not_delete_wipe_file_checkbox">Do not delete wipe file</string>
-
-    <string name="main_activity_keep_wipe_file_explanation_title">What is this for?</string>
-    <string name="main_activity_keep_wipe_file_explanation_message">
-        To verify if the internal storage is successfully filled up, do not delete the temporary
-        file used by the app. This is useful if you are planning to wipe the phone in recovery
-        mode right after running this app.
-    </string>
-
-    <string name="main_activity_keep_screen_on_switch">Keep screen on</string>
-
-    <string name="main_activity_start_button">Start</string>
-
-    <string name="main_activity_start_confirm_title">Proceed?</string>
-    <string name="main_activity_start_confirm_message">
-        Are you sure you want to start overwriting? Any overwritten data will not be recoverable!
-    </string>
-
-    <string name="main_activity_wipe_started">Started wipe…</string>
-    <string name="main_activity_wipe_finished">Finished wipe!</string>
-
-    <string name="main_activity_overshoot_warning">Finishing up last couple of bytes…</string>
 
     <string name="main_activity_action_faq">FAQ</string>
 
-    <string name="faq_activity_overshoot_title">Q: Why does awipe write more than 100%?</string>
-    <string name="faq_activity_overshoot_description">
-        This is because awipe doesn\'t immediately write the random data to the disk. All apps
-        have a buffer, which is periodically flushed to the disk. Therefore, awipe might overshoot
-        the 100% mark and keep on generating random data, even though the disk is full. Once awipe
-        notices that the disk is full, it will stop and alert you.
+    <string name="faq_activity_phone_mute_title">
+        Q: Why does my camera still make the shutter sound even when the switch is on?
+    </string>
+    <string name="faq_activity_phone_mute_description">
+        Your phone\'s ringer is probably still on. Switch it to vibrate or mute.
     </string>
 
-    <string name="faq_activity_undershoot_title">Q: Why does awipe write less than 100%?</string>
-    <string name="faq_activity_undershoot_description">
-        Sometimes, the system will report more free space than there is available. When this
-        happens, awipe cannot accurately determine the progress of the wipe. awipe will still try
-        and write to every single byte on the disk, so don\'t worry about the system falsely
-        reporting free space to awipe.
+    <string name="faq_activity_samsung_update_title">
+        Q: I updated my phone and camsung stopped working.
+    </string>
+    <string name="faq_activity_samsung_update_description">
+        Samsung probably patched out the mechanism that camsung uses to mute the camera.
+        Unfortunately they will do this because of jerks that use the phone camera for illegal
+        purposes. Please use this app responsibly.
     </string>
 
-    <string name="faq_activity_leftover_space_title">
-        Q: Free space isn\'t 0 bytes after running awipe. Why?
+    <string name="faq_activity_legitimate_uses_title">
+        Q: What are some legitimate use cases for camsung?
     </string>
-    <string name="faq_activity_leftover_space_description">
-        The Android system will actually prevent apps from completely filling up the disk, and
-        leave a couple of kilobytes free so that essential system processes can continue to
-        function. awipe will write to the disk until the system reports an I/O failure, as in,
-        there is no more space to write to. However, the Android system will report an I/O failure
-        even if there are a couple of kilobytes left. awipe, or any other Android app for that
-        matter, cannot write to these last bytes because the Android system will prevent it, so
-        that essential system processes can continue to function.
+    <string name="faq_activity_legitimate_uses_description">
+         - Taking pictures of your food in a quiet restaurant \n
+        - Taking pictures of your notes in a library \n
+        - Taking pictures of the whiteboard in a meeting/class \n\n
+
+        Again, please use camsung responsibly. I am not responsible for anything that happens as a
+        result of using this app.
     </string>
 
-    <string name="faq_activity_force_close_title">
-        Q: Apps are force-closing after running awipe. Why?
+    <string name="faq_activity_android_warning_title">
+        Q: Android warns me that this is an outdated app. What gives?
     </string>
-    <string name="faq_activity_force_close_description">
-        This is because the apps do not have enough free space to write temporary files. Recent
-        Android versions try and prevent you from this situation, but it can still happen. This
-        is why you shouldn\'t run awipe on the device you plan to use, as recovering from this
-        situation may require you to perform a factory reset. If you do not want to factory
-        reset your device, try to delete the app\'s data or remove the app entirely (the Android
-        system will delete the app data on app removal).
+    <string name="faq_activity_android_warning_description">
+        Android only allows you to write to the system settings table if your app targets SDK 22 or
+        below. Unfortunately, a side effect of setting the app\'s SDK to 22 is that Android will
+        warn the user that the app may be incompatible. This is by design, and you can ignore the
+        warning.
     </string>
 
-    <string name="faq_activity_wipe_security_title">
-        Q: How secure is awipe? Can someone recover overwritten data?
-    </string>
-    <string name="faq_activity_wipe_security_description">
-        Theoretically, awipe makes all data on your device unrecoverable. However, there are some
-        caveats to look out for.
-        \n\nFirst, awipe is designed to run once. While this should be
-        enough, most flash chips embeeded in most devices nowadays have reserve blocks, meant to
-        reduce wear and tear on the flash chips. awipe cannot wipe these reserve blocks unless the
-        flash controller writes to them.
-        \n\nThe good news is that the chances of your data residing in one of these reserve blocks
-        is slim, since reserve blocks are usually 5-20% of the total flash size. And the more good
-        news is that you can significantly increase the chances of awipe writing over these
-        reserve blocks by simply running awipe multiple times. Do ensure that the checkbox for
-        keeping the temporary file is unchecked if you do decide to run awipe multiple times.
-        \n\nAlso, keep in mind that awipe is beta software. It has not been tested extensively.
-        I am not responsible for any data leaks that occur as a result of using this app.
-        \n\nThe bottom line is, unless you\'re being targeted by a very powerful government branch,
-        such as the NSA, awipe should be more than enough for your needs. It\'s only for selling
-        off old Android devices, and new Android devices have better security when it comes to
-        full device factory resets.
-    </string>
 </resources>

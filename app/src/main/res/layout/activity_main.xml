@@ -5,62 +5,26 @@
     android:layout_height="match_parent"
     android:layout_margin="8dp"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/main_activity_explanation" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/main_activity_switch"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="@string/main_activity_warning"
-        android:layout_marginBottom="8dp"/>
+        android:scaleX="2"
+        android:scaleY="2"
+        android:onClick="toggleMuteClicked" />
 
-    <CheckBox
-        android:id="@+id/main_activity_do_not_delete_wipe_file_checkbox"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/main_activity_boot_lock"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_activity_do_not_delete_wipe_file_checkbox"
-        android:checked="true"
-        android:layout_marginBottom="8dp"/>
-
-    <Switch
-        android:id="@+id/main_activity_keep_screen_on_switch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/main_activity_keep_screen_on_switch"
-        android:onClick="keepScreenOnSwitchClicked"
-        android:layout_marginBottom="8dp"/>
-
-    <Button
-        android:id="@+id/main_activity_start_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/main_activity_start_button"
-        android:onClick="startWipeClicked"
-        android:layout_marginBottom="8dp"/>
-
-    <ProgressBar
-        android:id="@+id/main_activity_wipe_progress_bar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="100"
-        android:indeterminate="false"
-        android:progress="0"
-        android:visibility="invisible"/>
-
-    <TextView
-        android:id="@+id/main_activity_wipe_progress_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="textEnd"
-        android:gravity="end"
-        android:visibility="invisible"
-        android:layout_marginBottom="8dp"/>
+        android:src="@drawable/ic_baseline_lock_open_24"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:onClick="bootLockClicked" />
 
 </LinearLayout>
