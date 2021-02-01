@@ -1,6 +1,6 @@
-package android.com.ericswpark.awipe
+package android.com.ericswpark.camsung
 
-import android.com.ericswpark.awipe.FAQActivity.FAQActivity
+import android.com.ericswpark.camsung.FAQActivity.FAQActivity
 import android.content.Context
 import android.content.Intent
 import android.os.*

@@ -1,6 +1,6 @@
-package android.com.ericswpark.awipe.FAQActivity
+package android.com.ericswpark.camsung.FAQActivity
 
-import android.com.ericswpark.awipe.R
+import android.com.ericswpark.camsung.R
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView

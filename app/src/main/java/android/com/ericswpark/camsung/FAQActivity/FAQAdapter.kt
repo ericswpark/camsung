@@ -1,6 +1,6 @@
-package android.com.ericswpark.awipe.FAQActivity
+package android.com.ericswpark.camsung.FAQActivity
 
-import android.com.ericswpark.awipe.R
+import android.com.ericswpark.camsung.R
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

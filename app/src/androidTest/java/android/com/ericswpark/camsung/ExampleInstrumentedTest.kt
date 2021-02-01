@@ -1,4 +1,4 @@
-package android.com.ericswpark.awipe
+package android.com.ericswpark.camsung
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

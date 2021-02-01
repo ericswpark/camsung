@@ -1,4 +1,4 @@
-package android.com.ericswpark.awipe
+package android.com.ericswpark.camsung
 
 import org.junit.Test
 
