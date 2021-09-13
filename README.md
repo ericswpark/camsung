@@ -21,3 +21,7 @@ other people (such as in restaurants or in a library).
 This app directly modifies system settings. While it should be relatively safe things can still go wrong. I am not responsible for any problems that may arise from using this app.
 
 이 어플은 시스템 설정을 직접 변경합니다. 비교적 안전하게 만들어졌지만 아직도 버그나 오류가 있을 수 있으니 사용할 때 조심하세요. 이 어플을 사용하면서 발생하는 문제에 대해 책임을 지지 않습니다.
+
+This app only works with recent Android versions paired with One UI releases.
+
+이 어플은 최근에 출시된 안드로이드 버전과 One UI 릴리스에서 작동합니다.
