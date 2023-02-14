@@ -10,6 +10,18 @@ Silence camera on Samsung phones
 
 ![main_window](img/main_window.png?raw=true)
 
+## Usage/사용법
+
+Install, open, and click on the switch to enable the mute function. Click on the lock icon to enable on boot.
+
+설치 후 실행한 다음, 스위치를 눌러 무음을 활성화합니다. 잠금 아이콘을 누르면 부팅시 매번 적용합니다.
+
+## Uninstall/제거
+
+Turn off the switch, then uninstall. If you uninstalled before turning off the switch, re-install the app, toggle the switch at least once until it is in the off position (so if it shows as off, then turn on and then turn off. Fi it shows as on, just turn it off), then uninstall.
+
+스위치를 끄고 설치 삭제하시면 됩니다. 만약 스위치를 끄기 전에 삭제하셨다면, 어플을 다시 설치한 후, 스위치를 몇번 토글하여 끔 상태로 만든 후 (예를 들어, 만약 스위치가 꺼져있다면 킨 다음 다시 끄고, 켜져있다면 그냥 끄시면 됩니다), 어플 설치를 삭제하시면 됩니다. 
+
 ## Warning/경고
 
 Please do not use this app for malicious purposes. It's only made for situations where you don't want to disturb
