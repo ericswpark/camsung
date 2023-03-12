@@ -21,8 +21,10 @@ class BootUpReceiver : BroadcastReceiver() {
             if (Settings.System.canWrite(context)) {
                 CameraHelper.setCameraMute(context.contentResolver)
                 Toast.makeText(context, R.string.main_activity_mute_enabled, Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, R.string.boot_error_no_permissions, Toast.LENGTH_SHORT)
+                    .show()
             }
-            Toast.makeText(context, R.string.boot_error_no_permissions, Toast.LENGTH_SHORT).show()
         }
     }
 }
