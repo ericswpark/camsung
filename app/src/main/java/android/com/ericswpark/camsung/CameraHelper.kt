@@ -5,7 +5,7 @@ import android.provider.Settings
 
 class CameraHelper {
     companion object {
-        val propString = "csc_pref_camera_forced_shuttersound_key"
+        private const val propString = "csc_pref_camera_forced_shuttersound_key"
 
         fun isCameraMuted(contentResolver: ContentResolver): Boolean {
             return try {
