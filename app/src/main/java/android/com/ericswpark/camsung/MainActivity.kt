@@ -19,7 +19,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 
 
 class MainActivity : AppCompatActivity() {
-    val sharedPrefKey = "android.com.ericswpark.camsung.PREFERENCES"
+    private val sharedPrefKey = "android.com.ericswpark.camsung.PREFERENCES"
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
