@@ -1,7 +1,8 @@
 # camsung
 
+<p align="center">
 [한국어][korean-translation]
-{: .text-center }
+</p>
 
 Silence camera on Samsung phones
 
