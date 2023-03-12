@@ -10,6 +10,7 @@ android {
     defaultConfig {
         applicationId "android.com.ericswpark.camsung"
         minSdkVersion 22
+        // Do NOT change this from 22 - or else you can't write to secure settings
         //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 22
         versionCode 3
