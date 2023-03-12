@@ -1,15 +1,13 @@
 # camsung
 
 <div align="center">
-[한국어][korean-translation]
+[한국어](README.ko.md)
 </div>
 
 Silence camera on Samsung phones
 
 [Download latest APK][release-latest-apk]
 
-
-[korean-translation]: README.ko.md
 [release-latest-apk]: https://github.com/ericswpark/camsung/releases/latest/download/app-release.apk
 
 ## Screenshots
