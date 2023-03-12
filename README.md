@@ -29,6 +29,14 @@ Turn off the switch, then uninstall. If you uninstalled before turning off the s
 the app, toggle the switch at least once until it is in the off position (so if it shows as off,
 then turn on and then turn off. If it shows as on, just turn it off), then uninstall.
 
+If you still get unexpected behavior after following the removal steps, try the following command on your computer while your phone is connected via USB and in ADB developer mode:
+
+```
+adb shell settings delete system csc_pref_camera_forced_shuttersound_key
+```
+
+This deletes the prop set by camsung.
+
 ## Warning
 
 Please do not use this app for malicious purposes. It's only made for situations where you don't
