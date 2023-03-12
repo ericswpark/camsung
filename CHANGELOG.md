@@ -1,0 +1,40 @@
+# Changelog
+
+<div align="center">
+
+[한국어][korean-translation]
+
+</div>
+
+
+The format is based on [Keep a Changelog][keep-a-changelog].
+
+
+[korean-translation]: CHANGELOG.ko.md
+[keep-a-changelog]: https://keepachangelog.com/en/1.0.0/
+
+
+# [Unreleased]
+
+
+# [1.0.2] - 2021-02-02
+
+## Changed
+- Changed color scheme
+
+
+# [1.0.1] - 2021-02-01
+
+## Changed
+- Fixes crash if the prop does not exist
+
+
+# [1.0.0] - 2021-02-01
+
+Initial release
+
+
+[Unreleased]: https://github.com/ericswpark/camsung/compare/1.0.2...HEAD
+[1.0.2]: https://github.com/ericswpark/camsung/compare/1.0.1...1.0.2
+[1.0.1]: https://github.com/ericswpark/camsung/compare/1.0.0...1.0.1
+[1.0.0]: https://github.com/ericswpark/camsung/compare/509b2f1e5b6dbbee4b2436d20d0b61c04de728bc...1.0.0
