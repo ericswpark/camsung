@@ -59,9 +59,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    fun toggleMuteClicked(v: View) {
-        val switch = findViewById<SwitchMaterial>(R.id.main_activity_switch)
-
+    fun toggleMuteClicked(button: View) {
+        assert(button.id == R.id.main_activity_switch)
+        val switch = button as SwitchMaterial
 
         if (!isPermissionGranted()) {
             showPermissionDialog()
@@ -81,13 +81,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    fun bootLockClicked(v: View) {
+    fun bootLockClicked(button: View) {
+        assert(button.id == R.id.main_activity_boot_lock)
+        val bootLockButton = button as ImageView
+
         if (!isPermissionGranted()) {
             showPermissionDialog()
             return
         }
 
-        val bootLockButton = findViewById<ImageView>(R.id.main_activity_boot_lock)
         val sharedPref = getSharedPreferences(sharedPrefKey, Context.MODE_PRIVATE)
 
         if (!isBootEnabled())  {
