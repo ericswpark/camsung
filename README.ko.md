@@ -6,22 +6,16 @@
 
 [release-latest-apk]: https://github.com/ericswpark/camsung/releases/latest/download/app-release.apk
 
-## 스샷
-
-![main_window](img/main_window.png?raw=true)
-
 ## 지원 중단 경고
 
-안드로이드 14부터는 SDK 23 (안드로이드 6.0) 아래를 타겟팅하는 어플들은 `adb` 플래그를 사용하지 않으면 설치할 수 없습니다:
-
-```
-adb install --bypass-low-target-sdk-block app-release.apk
-```
-
-구글이 사용자들에게 의도하는 어플 설치 방법이 아니기에, 캠성은 안드로이드 14 및 이후 버전에서 지원되지 않습니다. 제공되는 추후 지원은 없으니 안드로이드 14 기기에서 일어나는 문제에 대해 별다른 버그 리포트를 작성하지 말아주세요.
+안드로이드 14부터는 보안 설정을 수정하는 API가 차단되었기 때문에, 이 어플은 안드로이드 14 및 이후 버전에서 작동하지 않습니다.
 
 문제에 대해 알려주신 Matthew Wright님께 감사합니다.
 
+
+## 스샷
+
+![main_window](img/main_window.png?raw=true)
 
 ## 사용법
 
