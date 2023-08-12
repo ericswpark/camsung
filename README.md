@@ -14,6 +14,19 @@ Silence camera on Samsung phones
 [korean-translation]: README.ko.md
 [release-latest-apk]: https://github.com/ericswpark/camsung/releases/latest/download/app-release.apk
 
+## Deprecation notice
+
+Starting from Android 14, apps targeting SDKs below 23 (Android 6.0) cannot be installed without an `adb` flag:
+
+```
+adb install --bypass-low-target-sdk-block app-release.apk
+```
+
+As Google does not intend for users to install apps this way, camsung is now unsupported on Android 14 and later. No support will be given, so please do not open any bug reports about camsung not working on Android 14 devices.
+
+Thanks to Matthew Wright for letting me know of this problem.
+
+
 ## Screenshots
 
 ![main_window](img/main_window.png?raw=true)
