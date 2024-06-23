@@ -10,19 +10,24 @@ Silence camera on Samsung phones
 
 [Download latest APK][release-latest-apk]
 
-
 [korean-translation]: README.ko.md
 [release-latest-apk]: https://github.com/ericswpark/camsung/releases/latest/download/app-release.apk
-
-## Deprecation notice
-
-Android 14 blocks the APIs needed to modify secure settings. As such, this app will no longer work on Android 14 and above.
-
-Thanks to Matthew Wright for letting me know of this problem.
 
 ## Screenshots
 
 ![main_window](img/main_window.png?raw=true)
+
+## Installation
+
+If your phone is running Android 13 or below, just sideload the APK.
+
+If your phone is running Android 14 or above, you need to install the app via ADB as Google blocks installing apps that target SDK 22 and below. Enable Developer Mode and USB Debugging, then run:
+
+```
+adb install --bypass-low-target-sdk-block app-release.apk
+```
+
+Make sure to replace `app-release.apk` if you've renamed the file.
 
 ## Usage
 
