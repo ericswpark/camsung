@@ -31,8 +31,9 @@ Make sure to replace `app-release.apk` if you've renamed the file.
 
 ## Usage
 
-Install, open, and click on the switch to enable the mute function. Click on the lock icon to enable
-on boot.
+Install, open, and click on the switch to enable the mute function. Click on the lock icon to enable on boot.
+
+Note that your phone needs to be on vibrate or mute for the camera shutter to be muted!
 
 ## Uninstall
 
