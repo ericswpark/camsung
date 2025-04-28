@@ -18,11 +18,15 @@ class CameraHelper {
         }
 
         fun setCameraMute(contentResolver: ContentResolver) {
-            Settings.System.putInt(contentResolver, PROP_STRING, 0)
+            cameraSetting(contentResolver, 0)
         }
 
         fun setCameraUnmute(contentResolver: ContentResolver) {
-            Settings.System.putInt(contentResolver, PROP_STRING, 1)
+            cameraSetting(contentResolver, 1)
+        }
+
+        private fun cameraSetting(contentResolver: ContentResolver, value: Int) {
+            Settings.System.putInt(contentResolver, PROP_STRING, value)
         }
     }
 }

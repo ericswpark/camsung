@@ -1,4 +1,4 @@
-package android.com.ericswpark.camsung.FAQActivity
+package android.com.ericswpark.camsung.faq
 
 import android.com.ericswpark.camsung.R
 import android.os.Bundle

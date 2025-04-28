@@ -1,4 +1,4 @@
-package android.com.ericswpark.camsung.FAQActivity
+package android.com.ericswpark.camsung.faq
 
 import android.com.ericswpark.camsung.R
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class FAQAdapter(val faqList: ArrayList<FAQ>) : RecyclerView.Adapter<FAQAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FAQAdapter.ViewHolder {
+class FAQAdapter(private val faqList: ArrayList<FAQ>) : RecyclerView.Adapter<FAQAdapter.ViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.faq_item, parent, false)
         return ViewHolder(v)
     }

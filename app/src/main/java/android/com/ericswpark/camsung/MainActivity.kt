@@ -1,6 +1,6 @@
 package android.com.ericswpark.camsung
 
-import android.com.ericswpark.camsung.FAQActivity.FAQActivity
+import android.com.ericswpark.camsung.faq.FAQActivity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri

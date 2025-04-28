@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="android.com.ericswpark.camsung.FAQActivity.FAQActivity"
+            android:name="android.com.ericswpark.camsung.faq.FAQActivity"
             android:screenOrientation="portrait">
         </activity>
 
