@@ -29,20 +29,6 @@
     </string>
     <string name="faq_activity_samsung_update_description">
         Samsung probably patched out the mechanism that camsung uses to mute the camera.
-        Unfortunately they will do this because of jerks that use the phone camera for illegal
-        purposes. Please use this app responsibly.
-    </string>
-
-    <string name="faq_activity_legitimate_uses_title">
-        Q: What are some legitimate use cases for camsung?
-    </string>
-    <string name="faq_activity_legitimate_uses_description">
-         - Taking pictures of your food in a quiet restaurant \n
-        - Taking pictures of your notes in a library \n
-        - Taking pictures of the whiteboard in a meeting/class \n\n
-
-        Again, please use camsung responsibly. I am not responsible for anything that happens as a
-        result of using this app.
     </string>
 
     <string name="faq_activity_android_warning_title">

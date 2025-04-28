@@ -28,20 +28,7 @@
         Q: 휴대폰을 업데이트했는데 캠성이 작동하질 않습니다.
     </string>
     <string name="faq_activity_samsung_update_description">
-        삼성이 아마도 캠성이 사용하는 방법을 패치한 것 같습니다. 아쉽지만, 카메라를 몰래 사용하여 발생하는
-        범죄 때문에 그렇습니다. 제발 합법적인 용도로만 캠성을 사용해주세요.
-    </string>
-
-    <string name="faq_activity_legitimate_uses_title">
-        Q: 캠성 사용 목적이 무엇입니까?
-    </string>
-    <string name="faq_activity_legitimate_uses_description">
-         - 조용한 음식점에서 음식 사진을 찍을 때 \n
-        - 도서관에서 노트 필기 사진을 찍을 때 \n
-        - 미팅/교실에서 보드 사진을 찍을 때 \n\n
-
-        위에 적혀있듯이, 제발 캠성을 합법적인 용도로만 사용해주세요. 저는 이 어플을 사용하여 발생한 문제에 대해
-        책임을 지지 않습니다.
+        삼성이 아마도 캠성이 사용하는 방법을 패치한 것 같습니다.
     </string>
 
     <string name="faq_activity_android_warning_title">

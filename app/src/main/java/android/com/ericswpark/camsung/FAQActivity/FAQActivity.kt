@@ -20,8 +20,6 @@ class FAQActivity : AppCompatActivity() {
                 getString(R.string.faq_activity_phone_mute_description)))
         faqList.add(FAQ(getString(R.string.faq_activity_samsung_update_title),
                 getString(R.string.faq_activity_samsung_update_description)))
-        faqList.add(FAQ(getString(R.string.faq_activity_legitimate_uses_title),
-                getString(R.string.faq_activity_legitimate_uses_description)))
         faqList.add(FAQ(getString(R.string.faq_activity_android_warning_title),
             getString(R.string.faq_activity_android_warning_description)))
         val faqAdapter = FAQAdapter(faqList)
