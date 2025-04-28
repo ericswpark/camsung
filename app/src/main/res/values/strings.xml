@@ -41,4 +41,9 @@
         warning.
     </string>
 
+    <string name="shortcut_camera_mute_short">Mute camera</string>
+    <string name="shortcut_camera_mute_long">Enables camera mute</string>
+    <string name="shortcut_camera_unmute_short">Unmute camera</string>
+    <string name="shortcut_camera_unmute_long">Disables camera mute</string>
+
 </resources>

@@ -40,4 +40,9 @@
         이것은 원래 정상적인 작동으로, 경고를 무시하셔도 됩니다.
     </string>
 
+    <string name="shortcut_camera_mute_short">카메라 무음</string>
+    <string name="shortcut_camera_mute_long">카메라 무음을 활성화합니다</string>
+    <string name="shortcut_camera_unmute_short">카메라 무음 해제</string>
+    <string name="shortcut_camera_unmute_long">카메라 무음을 비활성화합니다</string>
+
 </resources>

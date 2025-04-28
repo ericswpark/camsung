@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity() {
         if (!isPermissionGranted()) {
             showPermissionDialog()
         }
+
+        handleIntents(intent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -58,6 +60,19 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun handleIntents(intent: Intent) {
+        val data = intent.data?.toString()
+
+        when (data) {
+            "app://mute" -> {
+                muteCamera()
+            }
+            "app://unmute" -> {
+                unmuteCamera()
+            }
+        }
+    }
+
     @RequiresApi(Build.VERSION_CODES.M)
     fun toggleMuteClicked(button: View) {
         assert(button.id == R.id.main_activity_switch)
@@ -70,14 +85,27 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (CameraHelper.isCameraMuted(contentResolver)) {
-            CameraHelper.setCameraUnmute(contentResolver)
-            Toast.makeText(this, R.string.main_activity_mute_disabled, Toast.LENGTH_SHORT).show()
+            unmuteCamera()
         } else {
-            CameraHelper.setCameraMute(contentResolver)
-            Toast.makeText(this, R.string.main_activity_mute_enabled, Toast.LENGTH_SHORT).show()
+            muteCamera()
         }
+    }
 
+    private fun updateToggle() {
+        val switch = findViewById<SwitchMaterial>(R.id.main_activity_switch)
         switch.isChecked = CameraHelper.isCameraMuted(contentResolver)
+    }
+
+    private fun muteCamera() {
+        CameraHelper.setCameraMute(contentResolver)
+        Toast.makeText(this, R.string.main_activity_mute_enabled, Toast.LENGTH_SHORT).show()
+        updateToggle()
+    }
+
+    private fun unmuteCamera() {
+        CameraHelper.setCameraUnmute(contentResolver)
+        Toast.makeText(this, R.string.main_activity_mute_disabled, Toast.LENGTH_SHORT).show()
+        updateToggle()
     }
 
     @RequiresApi(Build.VERSION_CODES.M)

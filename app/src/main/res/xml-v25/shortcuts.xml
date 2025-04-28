@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
+        android:shortcutId="camera_mute"
         android:enabled="true"
-        android:icon="@drawable/baseline_volume_off_24">
+        android:icon="@drawable/baseline_volume_off_24"
+        android:shortcutShortLabel="@string/shortcut_camera_mute_short"
+        android:shortcutLongLabel="@string/shortcut_camera_mute_long">
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="android.com.ericswpark.camsung"
@@ -10,8 +13,11 @@
             android:data="app://mute" />
     </shortcut>
     <shortcut
+        android:shortcutId="camera_unmute"
         android:enabled="true"
-        android:icon="@drawable/baseline_volume_up_24">
+        android:icon="@drawable/baseline_volume_up_24"
+        android:shortcutShortLabel="@string/shortcut_camera_unmute_short"
+        android:shortcutLongLabel="@string/shortcut_camera_unmute_long">
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="android.com.ericswpark.camsung"
