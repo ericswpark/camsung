@@ -3,7 +3,6 @@ package android.com.ericswpark.camsung
 import android.com.ericswpark.camsung.faq.FAQActivity
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
@@ -15,8 +14,8 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.switchmaterial.SwitchMaterial
 import androidx.core.net.toUri
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 
 class MainActivity : AppCompatActivity() {
