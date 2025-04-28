@@ -23,7 +23,7 @@
             android:name="android.com.ericswpark.camsung.faq.FAQActivity">
         </activity>
 
-        <receiver android:enabled="true" android:name=".BootUpReceiver"
+        <receiver android:enabled="true" android:name=".BootUpReceiver" android:exported="false"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
