@@ -12,8 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.camsung">
         <activity
-            android:name="android.com.ericswpark.camsung.MainActivity"
-            android:screenOrientation="portrait">
+            android:name="android.com.ericswpark.camsung.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,8 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="android.com.ericswpark.camsung.faq.FAQActivity"
-            android:screenOrientation="portrait">
+            android:name="android.com.ericswpark.camsung.faq.FAQActivity">
         </activity>
 
         <receiver android:enabled="true" android:name=".BootUpReceiver"
