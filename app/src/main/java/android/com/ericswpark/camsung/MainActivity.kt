@@ -26,15 +26,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val switch = findViewById<SwitchMaterial>(R.id.main_activity_switch)
-        switch.isChecked = CameraHelper.isCameraMuted(contentResolver)
-
-        val bootLockButton = findViewById<ImageView>(R.id.main_activity_boot_lock)
-        if (isBootEnabled()) {
-            bootLockButton.setImageResource(R.drawable.ic_baseline_lock_24)
-        } else {
-            bootLockButton.setImageResource(R.drawable.ic_baseline_lock_open_24)
-        }
+        // Initial update views
+        updateToggle()
+        updateBootToggle()
 
         if (!isPermissionGranted()) {
             showPermissionDialog()
@@ -60,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun handleIntents(intent: Intent) {
         val data = intent.data?.toString()
 
@@ -76,11 +71,10 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     fun toggleMuteClicked(button: View) {
         assert(button.id == R.id.main_activity_switch)
-        val switch = button as SwitchMaterial
 
         if (!isPermissionGranted()) {
             showPermissionDialog()
-            switch.isChecked = !switch.isChecked
+            updateToggle()
             return
         }
 
@@ -94,6 +88,15 @@ class MainActivity : AppCompatActivity() {
     private fun updateToggle() {
         val switch = findViewById<SwitchMaterial>(R.id.main_activity_switch)
         switch.isChecked = CameraHelper.isCameraMuted(contentResolver)
+    }
+
+    private fun updateBootToggle() {
+        val bootLockButton = findViewById<ImageView>(R.id.main_activity_boot_lock)
+        if (isBootEnabled()) {
+            bootLockButton.setImageResource(R.drawable.ic_baseline_lock_24)
+        } else {
+            bootLockButton.setImageResource(R.drawable.ic_baseline_lock_open_24)
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -123,7 +126,6 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     fun bootLockClicked(button: View) {
         assert(button.id == R.id.main_activity_boot_lock)
-        val bootLockButton = button as ImageView
 
         if (!isPermissionGranted()) {
             showPermissionDialog()
@@ -133,22 +135,20 @@ class MainActivity : AppCompatActivity() {
         val sharedPref = getSharedPreferences(sharedPrefKey, Context.MODE_PRIVATE)
 
         if (!isBootEnabled())  {
-            bootLockButton.setImageResource(R.drawable.ic_baseline_lock_24)
-
             with(sharedPref.edit()) {
                 putInt("start_at_boot", 1)
                 apply()
             }
             Toast.makeText(this, R.string.main_activity_boot_enabled, Toast.LENGTH_SHORT).show()
         } else {
-            bootLockButton.setImageResource(R.drawable.ic_baseline_lock_open_24)
-
             with(sharedPref.edit()) {
                 putInt("start_at_boot", 0)
                 apply()
             }
             Toast.makeText(this, R.string.main_activity_boot_disabled, Toast.LENGTH_SHORT).show()
         }
+
+        updateBootToggle()
     }
 
     private fun isBootEnabled(): Boolean {
