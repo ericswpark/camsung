@@ -86,3 +86,9 @@ lint/tmp/
 
 # Android Profiling
 *.hprof
+
+# Ignore releases
+app/release
+
+# Ignore Kotlin intermediaries
+.kotlin
