@@ -19,7 +19,7 @@ The format is based on [Keep a Changelog][keep-a-changelog].
 
 ## Added
 
-- App shortcuts and intents have been added! You can now automate the camera mute setting with Galaxy Actions or Tasker.
+- App shortcuts and intents have been added! You can now automate the camera mute setting with Galaxy Routines or Tasker.
 
 ## Changed
 
