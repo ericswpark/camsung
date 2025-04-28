@@ -7,7 +7,7 @@
     <string name="main_activity_boot_enabled">재부팅 시, 카메라 무음이 지속됩니다.</string>
     <string name="main_activity_boot_disabled">재부팅 시, 카메라 무음이 지속되지 않습니다.</string>
 
-    <string name="boot_error_no_permissions">권한 오류 - 카메라 무음 활성화에 실패했습니다.</string>
+    <string name="error_no_permissions">권한 오류 - 카메라 무음 설정 변경에 실패했습니다.</string>
 
     <string name="main_activity_write_settings_permission_title">권한 없음</string>
     <string name="main_activity_write_settings_permission_message">

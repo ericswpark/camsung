@@ -6,7 +6,7 @@
     <string name="main_activity_boot_enabled">Camera will be muted across reboots.</string>
     <string name="main_activity_boot_disabled">Camera will not be muted across reboots.</string>
 
-    <string name="boot_error_no_permissions">Permissions error - unable to mute camera.</string>
+    <string name="error_no_permissions">Permissions error - unable to change camera mute settings.</string>
 
     <string name="main_activity_write_settings_permission_title">Permission not granted</string>
     <string name="main_activity_write_settings_permission_message">

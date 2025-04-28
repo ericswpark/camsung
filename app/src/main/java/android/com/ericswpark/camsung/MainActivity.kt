@@ -96,13 +96,25 @@ class MainActivity : AppCompatActivity() {
         switch.isChecked = CameraHelper.isCameraMuted(contentResolver)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun muteCamera() {
+        if (!isPermissionGranted()) {
+            Toast.makeText(this, R.string.error_no_permissions, Toast.LENGTH_SHORT).show()
+            return
+        }
+
         CameraHelper.setCameraMute(contentResolver)
         Toast.makeText(this, R.string.main_activity_mute_enabled, Toast.LENGTH_SHORT).show()
         updateToggle()
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun unmuteCamera() {
+        if (!isPermissionGranted()) {
+            Toast.makeText(this, R.string.error_no_permissions, Toast.LENGTH_SHORT).show()
+            return
+        }
+
         CameraHelper.setCameraUnmute(contentResolver)
         Toast.makeText(this, R.string.main_activity_mute_disabled, Toast.LENGTH_SHORT).show()
         updateToggle()
