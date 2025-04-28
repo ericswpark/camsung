@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Awipe">
+        android:theme="@style/Theme.camsung">
         <activity
             android:name="android.com.ericswpark.camsung.MainActivity"
             android:screenOrientation="portrait">
