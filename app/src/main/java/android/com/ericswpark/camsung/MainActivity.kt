@@ -16,6 +16,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.switchmaterial.SwitchMaterial
+import androidx.core.net.toUri
 
 
 class MainActivity : AppCompatActivity() {
@@ -128,7 +129,8 @@ class MainActivity : AppCompatActivity() {
             .setTitle(R.string.main_activity_write_settings_permission_title)
             .setMessage(R.string.main_activity_write_settings_permission_message)
             .setPositiveButton(android.R.string.ok) { _, _ ->
-                val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:$packageName"))
+                val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS,
+                    "package:$packageName".toUri())
                 startActivity(intent)
             }
             .setNegativeButton(android.R.string.cancel) { dialog, _ -> dialog.cancel() }
