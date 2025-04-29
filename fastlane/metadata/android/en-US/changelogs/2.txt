@@ -1,0 +1,1 @@
+- Fixes crash if the prop does not exist

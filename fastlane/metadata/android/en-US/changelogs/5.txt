@@ -1,0 +1,7 @@
+- App shortcuts and intents have been added! You can now automate the camera mute setting with Galaxy Routines or Tasker.
+- New app icon and color scheme
+- General code cleanup
+- Better permissions check and state updating
+- Updated library dependencies
+- Screen rotations are now enabled for proper window proportions in windowed mode
+- Fixed the app ratio not being resizable due to the low build SDK version

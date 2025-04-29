@@ -1,0 +1,3 @@
+- Fixed error message about insufficient permissions on boot, even when permissions have been granted
+- Fixed an intent check that could allow third-party apps to silence the camera through camsung
+- General code cleanup
