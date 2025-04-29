@@ -33,6 +33,13 @@ android {
         jvmTarget = '1.8'
     }
     namespace 'android.com.ericswpark.camsung'
+
+    dependenciesInfo {
+        // Disable including dependency metadata when building APKs
+        includeInApk = false
+        // Disable including dependency metadata when building Android App Bundles
+        includeInBundle = false
+    }
 }
 
 dependencies {
