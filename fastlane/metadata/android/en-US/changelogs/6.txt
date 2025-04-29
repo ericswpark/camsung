@@ -1,0 +1,1 @@
+- Dependency metadata injection was disabled for inclusion into IzzyOnDroid

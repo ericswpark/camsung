@@ -6,7 +6,15 @@
 
 # [미출시]
 
-[미출시]: https://github.com/ericswpark/camsung/compare/1.1.0...HEAD
+[미출시]: https://github.com/ericswpark/camsung/compare/1.1.1...HEAD
+
+# [1.1.1] - 2025-04-29
+
+## 수정
+
+- IzzyOnDroid에 등재하기 위해 라이브러리 메타데이터 추가 절차 비활성화
+
+[1.1.1]: https://github.com/ericswpark/camsung/compare/1.1.0...1.1.1
 
 # [1.1.0] - 2025-04-28
 
