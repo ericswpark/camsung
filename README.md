@@ -1,5 +1,7 @@
 # camsung
 
+![IzzyOnDroid](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/android.com.ericswpark.camsung)
+
 <div align="center">
 
 [한국어][korean-translation]
