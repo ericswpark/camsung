@@ -1,12 +1,12 @@
 package android.com.ericswpark.camsung
 
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-
+import org.junit.ClassRule
 import org.junit.Test
 import org.junit.runner.RunWith
+import tools.fastlane.screengrab.Screengrab
+import tools.fastlane.screengrab.locale.LocaleTestRule
 
-import org.junit.Assert.*
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -15,10 +15,18 @@ import org.junit.Assert.*
  */
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
+    @ClassRule
+    val localeTestRule: LocaleTestRule = LocaleTestRule()
+
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("android.com.ericswpark.camsung", appContext.packageName)
+    fun testTakeScreenshot() {
+        Screengrab.screenshot("main")
     }
+
+//    @Test
+//    fun useAppContext() {
+//        // Context of the app under test.
+//        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+//        assertEquals("android.com.ericswpark.camsung", appContext.packageName)
+//    }
 }
