@@ -1,6 +1,6 @@
 # 캠성
 
-![IzzyOnDroid](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/android.com.ericswpark.camsung)
+[![IzzyOnDroid](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/android.com.ericswpark.camsung)](https://apt.izzysoft.de/fdroid/index/apk/android.com.ericswpark.camsung)
 
 삼성 폰에서 카메라 무음 설정
 
