@@ -17,7 +17,7 @@ Silence camera on Samsung phones
 
 ## Screenshots
 
-![Main window](fastlane/metadata/android/en-US/images/phoneScreenshots/1.png | width=100)
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" alt="Main window" width="300">
 
 ## Installation
 

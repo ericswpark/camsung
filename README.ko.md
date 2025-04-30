@@ -10,7 +10,7 @@
 
 ## 스샷
 
-![메인 윈도우](fastlane/metadata/android/ko-KR/images/phoneScreenshots/1.png | width=100)
+<img src="fastlane/metadata/android/ko-KR/images/phoneScreenshots/1.png" alt="메인 윈도우" width="300">
 
 ## 설치
 
