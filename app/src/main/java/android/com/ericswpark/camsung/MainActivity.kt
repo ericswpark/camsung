@@ -58,13 +58,22 @@ class MainActivity : AppCompatActivity() {
     private fun handleIntents(intent: Intent) {
         val data = intent.data?.toString()
 
+        var isShortcutCalled = false
+
         when (data) {
             "app://mute" -> {
+                isShortcutCalled = true
                 muteCamera()
             }
             "app://unmute" -> {
+                isShortcutCalled = true
                 unmuteCamera()
             }
+        }
+
+        // Exit activity if app shortcut was used
+        if (isShortcutCalled) {
+            finish()
         }
     }
 
