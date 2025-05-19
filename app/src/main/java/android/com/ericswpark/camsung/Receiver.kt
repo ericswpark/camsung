@@ -8,8 +8,19 @@ import android.provider.Settings
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 
+const val ACTION_SET_CAMERA = "android.com.ericswpark.camsung.ACTION_SET_CAMERA"
 
-class BootUpReceiver : BroadcastReceiver() {
+class Receiver : BroadcastReceiver() {
+
+    private fun muteCamera(context: Context) {
+        CameraHelper.setCameraMute(context.contentResolver)
+        Toast.makeText(context, R.string.main_activity_mute_enabled, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun unmuteCamera(context: Context) {
+        CameraHelper.setCameraUnmute(context.contentResolver)
+        Toast.makeText(context, R.string.main_activity_mute_disabled, Toast.LENGTH_SHORT).show()
+    }
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onReceive(context: Context, intent: Intent?) {
@@ -21,11 +32,22 @@ class BootUpReceiver : BroadcastReceiver() {
 
                 if (startBootEnabled) {
                     if (Settings.System.canWrite(context)) {
-                        CameraHelper.setCameraMute(context.contentResolver)
-                        Toast.makeText(context, R.string.main_activity_mute_enabled, Toast.LENGTH_SHORT).show()
+                        muteCamera(context)
                     } else {
                         Toast.makeText(context, R.string.error_no_permissions, Toast.LENGTH_SHORT)
                             .show()
+                    }
+                }
+            }
+            ACTION_SET_CAMERA -> {
+                val data = intent.data?.toString()
+
+                when (data) {
+                    "app://mute" -> {
+                        muteCamera(context)
+                    }
+                    "app://unmute" -> {
+                        unmuteCamera(context)
                     }
                 }
             }
