@@ -37,6 +37,14 @@ Install, open, and click on the switch to enable the mute function. Click on the
 
 Note that your phone needs to be on vibrate or mute for the camera shutter to be muted!
 
+### Automate
+
+You can automate muting and unmuting the camera with either Galaxy Routines or Tasker.
+
+I recommend using Tasker if possible, as Galaxy Routines will go through app shortcuts, which requires you to open the main activity and will induce a brief flash while the automation runs.
+
+See the [tasker](./tasker/) subfolder. You can import the XML files by long-pressing the "Tasks" tab in Tasker.
+
 ## Uninstall
 
 Turn off the switch, then uninstall. If you uninstalled before turning off the switch, re-install
