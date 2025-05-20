@@ -13,7 +13,16 @@ The format is based on [Keep a Changelog][keep-a-changelog].
 
 # [Unreleased]
 
-[Unreleased]: https://github.com/ericswpark/camsung/compare/1.1.1...HEAD
+[Unreleased]: https://github.com/ericswpark/camsung/compare/1.1.2..HEAD
+
+# [1.1.2] - 2025-05-19
+
+## Changed
+
+- App shortcuts now cause the app to exit after muting or unmuting the camera, for ease of automation with Galaxy Routines
+- You can now send intents to the Broadcast Receiver from any app, such as Tasker. Please refer to the README for pre-made task XML files
+
+[1.1.2]: https://github.com/ericswpark/camsung/compare/1.1.1...1.1.2
 
 # [1.1.1] - 2025-04-29
 

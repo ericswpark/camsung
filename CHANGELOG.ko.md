@@ -6,7 +6,16 @@
 
 # [미출시]
 
-[미출시]: https://github.com/ericswpark/camsung/compare/1.1.1...HEAD
+[미출시]: https://github.com/ericswpark/camsung/compare/1.1.2..HEAD
+
+# [1.1.2] - 2025-05-19
+
+## 수정
+
+- 앱 바로가기를 사용하여 카메라 무음을 활성화하거나 비활성화할 경우 갤럭시 루틴 등을 통한 자동화가 더 편리하게 이루어지도록 어플이 종료되게 변경
+- Tasker와 같은 어플에서 Broadcast Receiver에 인텐트를 보낼 수 있도록 수정. 이미 만들어진 task XML 파일들은 README를 참조해주세요
+
+[1.1.2]: https://github.com/ericswpark/camsung/compare/1.1.1...1.1.2
 
 # [1.1.1] - 2025-04-29
 

@@ -1,0 +1,2 @@
+- App shortcuts now cause the app to exit after muting or unmuting the camera, for ease of automation with Galaxy Routines
+- You can now send intents to the Broadcast Receiver from any app, such as Tasker. Please refer to the README for pre-made task XML files
