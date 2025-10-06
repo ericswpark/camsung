@@ -46,4 +46,13 @@
     <string name="shortcut_camera_unmute_short">Unmute camera</string>
     <string name="shortcut_camera_unmute_long">Disables camera mute</string>
 
+    <string name="settings_activity_title">Settings</string>
+
+    <string name="settings_camera_header">Camera</string>
+
+    <string name="settings_activity_camera_auto_launch_title">Automatically launch camera</string>
+    <string name="settings_activity_camera_auto_launch_description">Open the camera once the mute status is toggled</string>
+
+    <string name="auto_launching_camera">Launching camera&#8230;</string>
+    <string name="auto_launch_camera_failed_no_camera">No camera app found. Unable to auto-launch camera.</string>
 </resources>

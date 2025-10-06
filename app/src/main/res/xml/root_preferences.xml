@@ -1,0 +1,12 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/settings_camera_header">
+
+        <SwitchPreferenceCompat
+            app:key="camera_auto_launch"
+            app:title="@string/settings_activity_camera_auto_launch_title"
+            app:summary="@string/settings_activity_camera_auto_launch_description"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
