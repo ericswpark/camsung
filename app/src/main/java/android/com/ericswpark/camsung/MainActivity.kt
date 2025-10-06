@@ -2,9 +2,7 @@ package android.com.ericswpark.camsung
 
 import android.com.ericswpark.camsung.faq.FAQActivity
 import android.content.ComponentName
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -184,7 +182,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        val sharedPref = getSharedPreferences(sharedPrefKey, Context.MODE_PRIVATE)
+        val sharedPref = getSharedPreferences(sharedPrefKey, MODE_PRIVATE)
 
         if (!isBootEnabled())  {
             sharedPref.edit {
@@ -202,7 +200,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun isBootEnabled(): Boolean {
-        val sharedPref = getSharedPreferences(sharedPrefKey, Context.MODE_PRIVATE)
+        val sharedPref = getSharedPreferences(sharedPrefKey, MODE_PRIVATE)
         return sharedPref.getInt("start_at_boot", 0) == 1
     }
 
