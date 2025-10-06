@@ -4,6 +4,7 @@ import android.com.ericswpark.camsung.faq.FAQActivity
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -16,6 +17,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.core.net.toUri
 import androidx.preference.PreferenceManager
 import com.google.android.material.switchmaterial.SwitchMaterial
@@ -185,15 +187,13 @@ class MainActivity : AppCompatActivity() {
         val sharedPref = getSharedPreferences(sharedPrefKey, Context.MODE_PRIVATE)
 
         if (!isBootEnabled())  {
-            with(sharedPref.edit()) {
+            sharedPref.edit {
                 putInt("start_at_boot", 1)
-                apply()
             }
             Toast.makeText(this, R.string.main_activity_boot_enabled, Toast.LENGTH_SHORT).show()
         } else {
-            with(sharedPref.edit()) {
+            sharedPref.edit {
                 putInt("start_at_boot", 0)
-                apply()
             }
             Toast.makeText(this, R.string.main_activity_boot_disabled, Toast.LENGTH_SHORT).show()
         }
