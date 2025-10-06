@@ -1,10 +1,12 @@
 package android.com.ericswpark.camsung
 
 import android.com.ericswpark.camsung.faq.FAQActivity
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
@@ -15,6 +17,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
+import androidx.preference.PreferenceManager
 import com.google.android.material.switchmaterial.SwitchMaterial
 
 
@@ -45,12 +48,18 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_faq -> launchFAQ()
+            R.id.action_settings -> launchSettings()
         }
         return super.onOptionsItemSelected(item)
     }
 
     private fun launchFAQ() {
         val intent = Intent(this, FAQActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun launchSettings() {
+        val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
     }
 
@@ -91,6 +100,38 @@ class MainActivity : AppCompatActivity() {
             unmuteCamera()
         } else {
             muteCamera()
+        }
+
+        // Check if camera auto-launch is enabled
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val autoLaunch = sharedPreferences.getBoolean("camera_auto_launch", false)
+
+        if (autoLaunch) {
+            launchCamera()
+        }
+    }
+
+    private fun launchCamera() {
+        val imageCaptureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        val info = packageManager.resolveActivity(imageCaptureIntent, 0)
+
+        if (info != null) {
+            val packageName = info.activityInfo.packageName
+            val className = info.activityInfo.name
+
+            val cameraAppIntent = Intent(Intent.ACTION_MAIN)
+            cameraAppIntent.component = ComponentName(packageName, className)
+            cameraAppIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+
+            Toast.makeText(this, R.string.auto_launching_camera, Toast.LENGTH_SHORT).show()
+            startActivity(cameraAppIntent)
+        } else {
+            Toast.makeText(
+                this,
+                R.string.auto_launch_camera_failed_no_camera,
+                Toast.LENGTH_LONG
+            ).show()
+            return
         }
     }
 
