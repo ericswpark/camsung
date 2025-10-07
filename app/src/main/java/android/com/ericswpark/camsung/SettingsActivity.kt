@@ -1,8 +1,10 @@
 package android.com.ericswpark.camsung
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceFragmentCompat
+
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -16,6 +18,17 @@ class SettingsActivity : AppCompatActivity() {
                 .commit()
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+                return true
+            }
+
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {
