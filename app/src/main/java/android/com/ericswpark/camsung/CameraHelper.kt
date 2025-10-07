@@ -12,7 +12,7 @@ class CameraHelper {
             return try {
                 val propValue = Settings.System.getInt(contentResolver, PROP_STRING)
                 propValue == 0
-            } catch (e: Settings.SettingNotFoundException) {
+            } catch (_: Settings.SettingNotFoundException) {
                 false
             }
         }
