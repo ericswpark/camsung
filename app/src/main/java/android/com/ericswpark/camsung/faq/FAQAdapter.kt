@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class FAQAdapter(private val faqList: ArrayList<FAQ>) : RecyclerView.Adapter<FAQAdapter.ViewHolder>() {
+class FAQAdapter(private val faqList: ArrayList<FAQ>) :
+    RecyclerView.Adapter<FAQAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.faq_item, parent, false)
         return ViewHolder(v)
@@ -26,8 +27,8 @@ class FAQAdapter(private val faqList: ArrayList<FAQ>) : RecyclerView.Adapter<FAQ
             val titleTextView = itemView.findViewById<TextView>(R.id.faq_item_title)
             val descriptionTextView = itemView.findViewById<TextView>(R.id.faq_item_description)
 
-            titleTextView.text = faq.title
-            descriptionTextView.text = faq.description
+            titleTextView.text = itemView.context.getString(faq.title)
+            descriptionTextView.text = itemView.context.getString(faq.description)
         }
     }
 }

@@ -6,13 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class FAQActivity : AppCompatActivity() {
+
     val faqList = arrayListOf(
-        FAQ(getString(R.string.faq_activity_phone_mute_title),
-            getString(R.string.faq_activity_phone_mute_description)),
-        FAQ(getString(R.string.faq_activity_samsung_update_title),
-            getString(R.string.faq_activity_samsung_update_description)),
-        FAQ(getString(R.string.faq_activity_android_warning_title),
-            getString(R.string.faq_activity_android_warning_description))
+        FAQ(
+            R.string.faq_activity_phone_mute_title, R.string.faq_activity_phone_mute_description
+        ), FAQ(
+            R.string.faq_activity_samsung_update_title,
+            R.string.faq_activity_samsung_update_description
+        ), FAQ(
+            R.string.faq_activity_android_warning_title,
+            R.string.faq_activity_android_warning_description
+        )
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
