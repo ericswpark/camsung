@@ -9,7 +9,6 @@ import android.provider.MediaStore
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -24,10 +23,18 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 class MainActivity : AppCompatActivity() {
     private val sharedPrefKey = "android.com.ericswpark.camsung.PREFERENCES"
 
+    private lateinit var switchBtn: SwitchMaterial
+    private lateinit var lockBtn: ImageView
+
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        switchBtn = findViewById(R.id.main_activity_switch)
+        lockBtn = findViewById(R.id.main_activity_boot_lock)
+
+        setOnClickListeners()
 
         // Initial update views
         updateToggle()
@@ -38,6 +45,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         handleIntents(intent)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun setOnClickListeners() {
+        switchBtn.setOnClickListener {
+            toggleMuteClicked()
+        }
+        lockBtn.setOnClickListener {
+            bootLockClicked()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -87,9 +104,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    fun toggleMuteClicked(button: View) {
-        assert(button.id == R.id.main_activity_switch)
-
+    fun toggleMuteClicked() {
         if (!isPermissionGranted()) {
             showPermissionDialog()
             updateToggle()
@@ -174,9 +189,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    fun bootLockClicked(button: View) {
-        assert(button.id == R.id.main_activity_boot_lock)
-
+    fun bootLockClicked() {
         if (!isPermissionGranted()) {
             showPermissionDialog()
             return
