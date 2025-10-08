@@ -1,0 +1,3 @@
+- Added a settings option to automatically launch the camera when the mute setting is toggled
+- The app now supports predictive back gestures and accompanying animations on supported Android versions
+- Updated library dependencies

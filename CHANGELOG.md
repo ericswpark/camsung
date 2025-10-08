@@ -13,7 +13,20 @@ The format is based on [Keep a Changelog][keep-a-changelog].
 
 # [Unreleased]
 
-[Unreleased]: https://github.com/ericswpark/camsung/compare/1.1.2..HEAD
+[Unreleased]: https://github.com/ericswpark/camsung/compare/1.2.0..HEAD
+
+# [1.2.0] - 2025-10-08
+
+## Added
+
+- Added a settings option to automatically launch the camera when the mute setting is toggled
+
+## Changed
+
+- The app now supports predictive back gestures and accompanying animations on supported Android versions
+- Updated library dependencies
+
+[1.2.0]: https://github.com/ericswpark/camsung/compare/1.1.2...1.2.0
 
 # [1.1.2] - 2025-05-19
 

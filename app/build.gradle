@@ -13,8 +13,8 @@ android {
         // Do NOT change this from 22 - or else you can't write to secure settings
         //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 22
-        versionCode 7
-        versionName "1.1.2"
+        versionCode 8
+        versionName "1.2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
