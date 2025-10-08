@@ -22,11 +22,12 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:resizeableActivity="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.camsung"
-        android:resizeableActivity="true"
-        tools:targetApi="24">
+        android:enableOnBackInvokedCallback="true"
+        tools:targetApi="33">
         <activity
             android:name="android.com.ericswpark.camsung.MainActivity"
             android:exported="true">
@@ -39,8 +40,13 @@
                 android:resource="@xml/shortcuts" />
         </activity>
         <activity
-            android:name="android.com.ericswpark.camsung.faq.FAQActivity">
-        </activity>
+            android:name=".faq.FAQActivity"
+            android:exported="false"
+            android:label="@string/main_activity_action_faq" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/settings_activity_title" />
 
         <receiver android:enabled="true" android:name=".Receiver" android:exported="true"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
