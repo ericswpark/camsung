@@ -6,7 +6,20 @@
 
 # [미출시]
 
-[미출시]: https://github.com/ericswpark/camsung/compare/1.1.2..HEAD
+[미출시]: https://github.com/ericswpark/camsung/compare/1.2.0...HEAD
+
+# [1.2.0] - 2025-10-08
+
+## 추가
+
+- 음소거 설정이 토글될 때 카메라가 자동으로 실행되도록 하는 설정 옵션 추가
+
+## 수정
+
+- 적용되는 안드로이드 버전에서 뒤로 탐색 예측 제스처(Predictive back gestures)와 동반되는 에니메이션 지원
+- 라이브러리 버전 업데이트
+
+[1.2.0]: https://github.com/ericswpark/camsung/compare/1.1.2...1.2.0
 
 # [1.1.2] - 2025-05-19
 
