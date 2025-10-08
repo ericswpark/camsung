@@ -16,10 +16,7 @@
         android:theme="@style/Theme.camsung"
         android:enableOnBackInvokedCallback="true"
         tools:targetApi="33">
-        <activity
-            android:name=".SettingsActivity"
-            android:exported="false"
-            android:label="@string/settings_activity_title" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -33,7 +30,14 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
-        <activity android:name=".faq.FAQActivity"></activity>
+        <activity
+            android:name=".faq.FAQActivity"
+            android:exported="false"
+            android:label="@string/main_activity_action_faq" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/settings_activity_title" />
 
         <receiver
             android:name=".Receiver"
