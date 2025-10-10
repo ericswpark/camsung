@@ -13,7 +13,15 @@ The format is based on [Keep a Changelog][keep-a-changelog].
 
 # [Unreleased]
 
-[Unreleased]: https://github.com/ericswpark/camsung/compare/1.2.0..HEAD
+[Unreleased]: https://github.com/ericswpark/camsung/compare/1.2.1..HEAD
+
+# [1.2.1] - 2025-10-09
+
+## Changed
+
+- Fixed build issues with non-LTS version of JDK
+
+[1.2.1]: https://github.com/ericswpark/camsung/compare/1.2.0...1.2.1
 
 # [1.2.0] - 2025-10-08
 

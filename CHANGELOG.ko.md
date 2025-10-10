@@ -6,7 +6,15 @@
 
 # [미출시]
 
-[미출시]: https://github.com/ericswpark/camsung/compare/1.2.0...HEAD
+[미출시]: https://github.com/ericswpark/camsung/compare/1.2.1..HEAD
+
+# [1.2.1] - 2025-10-09
+
+## 수정
+
+- LTS 버전 JDK를 사용하지 않아 발생한 빌드 문제 수정
+
+[1.2.1]: https://github.com/ericswpark/camsung/compare/1.2.0...1.2.1
 
 # [1.2.0] - 2025-10-08
 
