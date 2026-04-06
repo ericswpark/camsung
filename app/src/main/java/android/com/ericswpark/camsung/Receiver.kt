@@ -24,8 +24,10 @@ class Receiver : BroadcastReceiver() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onReceive(context: Context, intent: Intent?) {
-        when (intent!!.action) {
+        val action = intent?.action ?: return
+        when (action) {
             Intent.ACTION_BOOT_COMPLETED -> {
+
                 val sharedPref = context.getSharedPreferences("android.com.ericswpark.camsung.PREFERENCES",
                     Context.MODE_PRIVATE)
                 val startBootEnabled = (sharedPref.getInt("start_at_boot", 0) == 1)
@@ -40,9 +42,10 @@ class Receiver : BroadcastReceiver() {
                 }
             }
             ACTION_SET_CAMERA -> {
-                val data = intent.data?.toString()
+                val data = intent?.data?.toString()
 
                 when (data) {
+
                     "app://mute" -> {
                         muteCamera(context)
                     }
